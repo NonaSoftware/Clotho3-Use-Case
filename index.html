@@ -45,12 +45,16 @@
           <label for="map_value">Value:</label>
           <input type="text" class="form-control" id="map_value">
         </div>
+        <button type="button" class="btn btn-primary">Enter</button>
       </div>
 
       <!-- div for destroy and get-->
-      <div class="form-group" ng-show="tab === 4 || tab === 5">
-        <label for="id_number">Insert ID Number:</label>
-        <input type="text" class="form-control" id="id_number">
+      <div ng-show="tab === 4 || tab === 5">
+        <div class="form-group">
+          <label for="id_number">Insert ID Number:</label>
+          <input type="text" class="form-control" id="id_number">
+        </div>
+        <button type="button" class="btn btn-primary">Enter</button>
       </div>
 
     </div>
