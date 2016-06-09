@@ -19,27 +19,28 @@
       <div class ="jumbotron">
         <h1> Clotho Use Case </h1>
       </div>
-      <div class="dropdown">
+      <section class="dropdown">
         <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Choose a Function
-          <span class="caret"></span></button>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="tab = 1">create</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="tab = 2">set</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="tab = 3">get</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="tab = 4">destroy</a></li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="tab = 5">query</a></li>
-          </ul>
-      </div>
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+          <li role="presentation" ><a role="menuitem" tabindex="-1" href="#" ng-click="tab = 1">create</a></li>
+          <li role="presentation" ><a role="menuitem" tabindex="-1" href="#" ng-click="tab = 2">set</a></li>
+          <li role="presentation" ><a role="menuitem" tabindex="-1" href="#" ng-click="tab = 3">get</a></li>
+          <li role="presentation" ><a role="menuitem" tabindex="-1" href="#" ng-click="tab = 4">destroy</a></li>
+          <li role="presentation" ><a role="menuitem" tabindex="-1" href="#" ng-click="tab = 5">query</a></li>
+        </ul>
 
       <!--div for create, set, query -->
-      <div ng-show="tab > 0 && tab < 4">
-        <div class="form-group">
-          <label for="json_object">Insert JSON Object:</label>
-          <textarea class="form-control" rows="5" id="json_object"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="map_key"><p>Or Insert Map:</p><p>Key:</p></label>
-          <input type="text" class="form-control" id="map_key">
+      <div ng-show="tab === 1 || tab === 2 || tab === 3">
+        <div>
+          <div class="form-group">
+            <label for="json_object">Insert JSON Object:</label>
+            <textarea class="form-control" rows="5" id="json_object"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="map_key"><p>Or Insert Map:</p><p>Key:</p></label>
+            <input type="text" class="form-control" id="map_key">
+          </div>
         </div>
         <div class="form-group">
           <label for="map_value">Value:</label>
@@ -56,8 +57,8 @@
         </div>
         <button type="button" class="btn btn-primary">Enter</button>
       </div>
-
     </div>
+
     <script src="js/clotho3API.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/q.js/0.9.6/q.min.js"></script>
   </body>
