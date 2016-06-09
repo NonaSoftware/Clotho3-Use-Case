@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="appPage">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,35 +9,41 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   </head>
   <body ng-app="" style="margin-top: 25px">
-    <div class = "container">
-      <div class = "row">
-        <div class = "col-md-8"> <img src = "img/NonaFoundation.png" width = "200px" height = "auto"></div>
+    <div class="container">
+
+      <!-- image -->
+      <div class="row">
+        <div class="col-md-8"> <img src="img/NonaFoundation.png" width="200px" height="auto"></div>
       </div>
-      <div class ="jumbotron" style="margin-top: 10px">
-        <h1> Clotho Use Case </h1>
-      </div>
-      <div class="dropdown" style="margin-bottom: 25px">
-        <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Choose a Function
-        <span class="caret"></span></button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-          <li role="presentation" ><a role="menuitem" tabindex="-1" href="#" ng-click="tab = 1">create</a></li>
-          <li role="presentation" ><a role="menuitem" tabindex="-1" href="#" ng-click="tab = 2">set</a></li>
-          <li role="presentation" ><a role="menuitem" tabindex="-1" href="#" ng-click="tab = 3">get</a></li>
-          <li role="presentation" ><a role="menuitem" tabindex="-1" href="#" ng-click="tab = 4">destroy</a></li>
-          <li role="presentation" ><a role="menuitem" tabindex="-1" href="#" ng-click="tab = 5">query</a></li>
-        </ul>
+      <!-- jumbotron -->
+      <div class ="jumbotron" style="margin-top: 10px" ng-show="true">
+        <h1> Clotho Test Case </h1>
       </div>
 
-      <!--div for create, set, query -->
-        <div ng-show="tab === 1 || tab === 2 || tab === 3">
-            <div class="form-group">
-              <label for="json_object">Insert JSON Object:</label>
-              <textarea class="form-control" rows="5" id="json_object"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="map_key"><p>Or Insert Map:</p><p>Key:</p></label>
-              <input type="text" class="form-control" id="map_key">
-            </div>
+      <!-- selection -->
+      <section ng-controller="DropdownController as drop">
+        <div class="dropdown" style="margin-bottom: 25px">
+          <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Choose a Function
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+            <li role="presentation"><a href="#" ng-click="drop.selectTab(1)">create</a></li>
+            <li role="presentation"><a href="#" ng-click="drop.selectTab(2)">set</a></li>
+            <li role="presentation"><a href="#" ng-click="drop.selectTab(3)">get</a></li>
+            <li role="presentation"><a href="#" ng-click="drop.selectTab(4)">destroy</a></li>
+            <li role="presentation"><a href="#" ng-click="drop.selectTab(5)">query</a></li>
+          </ul>
+        </div>
+
+        <!--div for create, set, query -->
+        <div ng-show="drop.isSelected(1) || drop.isSelected(2) || drop.isSelected(3)">
+          <div class="form-group">
+            <label for="json_object">Insert JSON Object:</label>
+            <textarea class="form-control" rows="5" id="json_object"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="map_key"><p>Or Insert Map:</p><p>Key:</p></label>
+            <input type="text" class="form-control" id="map_key">
+          </div>
           <div class="form-group">
             <label for="map_value">Value:</label>
             <input type="text" class="form-control" id="map_value">
@@ -45,14 +51,17 @@
           <button type="button" class="btn btn-primary">Enter</button>
         </div>
 
-      <!-- div for destroy and get-->
-        <div ng-show="tab === 4 || tab === 5">
+        <!-- div for destroy and get-->
+        <div ng-show="drop.isSelected(4) || drop.isSelected(5)">
           <div class="form-group">
             <label for="id_number">Insert ID Number:</label>
             <input type="text" class="form-control" id="id_number">
           </div>
           <button type="button" class="btn btn-primary">Enter</button>
         </div>
+      </section>
+
+    </div>
 
 
     <script src="js/clotho3API.js"></script>
@@ -60,5 +69,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
   </body>
 </html>
