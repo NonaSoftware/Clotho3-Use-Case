@@ -16,10 +16,6 @@
     };
   });
 
-  var loginClick = function() {
-    
-  });
-
 
 
    var functionText = ["Choose a function",
@@ -30,3 +26,11 @@
                 "query()"];
 
 })();
+function loginClick() {
+    console.log("clicked enter!");
+    var username = $(".username_input").val();
+    var password = $(".password_input").val();
+    Clotho.login(username,password).then(function(result){
+			console.log(result);
+		});
+  }
