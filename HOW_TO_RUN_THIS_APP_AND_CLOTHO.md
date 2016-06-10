@@ -37,4 +37,4 @@ stay on this page!
 Running Necessitas:
 1. Just click on home.html!
 
-To terminate, stop running the project in Netbeans, and ctrl+C in the terminal to terminate mongodb		
+To terminate, stop running the project in Netbeans, exit out of localhost:8443, and ctrl+C in the terminal to terminate mongodb		
