@@ -26,11 +26,20 @@
                 "query()"];
 
 })();
+
 function loginClick() {
-    console.log("clicked enter!");
-    var username = $(".username_input").val();
-    var password = $(".password_input").val();
+    var username = $(".username_input").val('');
+    var password = $(".password_input").val('');
     Clotho.login(username,password).then(function(result){
 			console.log(result);
 		});
   }
+
+function createUserClick(){
+    console.log("clicked enter!");
+        var username = $(".new_username_input").val('');
+        var password = $(".new_password_input").val('');
+   Clotho.createUser(username,password).then(function(result){
+     console.log(result);
+  });
+}
