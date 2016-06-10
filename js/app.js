@@ -16,6 +16,12 @@
     };
   });
 
+  app.controller("loginController", function() {
+    
+  });
+
+
+
    var functionText = ["Choose a function",
                 "create()",
                 "set()",
