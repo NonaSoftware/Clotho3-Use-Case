@@ -1,18 +1,19 @@
-$(document).ready(function(){
-  var text = '{ "employees" : [' +
-  '{ "firstName":"John" , "lastName":"Doe" },' +
-  '{ "firstName":"Anna" , "lastName":"Smith" },' +
-  '{ "firstName":"Peter" , "lastName":"Jones" } ]}';
-  var obj = JSON.parse(text);
+function clothoTest(){
+		var username = "anero";
+		var password = "alie";
+		Clotho.createUser(username,password).then(function(result){
+			alert(JSON.stringify(result));
+		});
+		Clotho.login(username,password).then(function(result){
+			alert(JSON.stringify(result));
+		});
+		var obj = {};
+		obj["name"] = "example";
+		obj["dna"] = "tcgctcgc";
+		obj["schema"] = "org.clothocad.model.sequence";
+		Clotho.create(obj).then(function(result){
+			alert(JSON.stringify(result));
+		});
 
-  document.getElementById("demo").innerHTML =
-  obj.employees[1].firstName + " " + obj.employees[1].lastName;
-  try{
-    Clotho.create(obj);
-  }
-  catch(err){
-    alert("didn't work: "+err);
-  }
-  alert("done");
 
-});
+	}
