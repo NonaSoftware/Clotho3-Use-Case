@@ -17,7 +17,11 @@
   });
 
   app.controller("loginController", function() {
-    
+    var username =
+    var password = 
+    Clotho.login(username,password).then(function(result){
+			console.log(result);
+		});
   });
 
 
