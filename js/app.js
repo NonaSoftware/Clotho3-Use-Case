@@ -1,4 +1,4 @@
-  var loginCheck = false;
+
 
 (function() {
   var app = angular.module('appPage', []);
@@ -20,12 +20,24 @@
         if (document.getElementById("map_key").value!="" && document.getElementById("value_key").value!=""){
           Clotho.create().then(function(result){
       			console.log(result);
+            if (result != null){
+              $('#error_field').text(result);
+            }
+            else{
+              $('#error_field').text('Cannot create object; connection may be lost or you may not be logged in.');
+            }
       		});
         }
         else if (document.getElementById("json_object").value!=""){
             var obj = JSON.parse(document.getElementById("json_object").value);
             Clotho.create(obj).then(function(result){
       			console.log(result);
+            if (result != null){
+              $('#error_field').text(result);
+            }
+            else{
+              $('#error_field').text('Cannot destroy object; connection may be lost or you may not be logged in.');
+            }
       		});
         }
         else{
