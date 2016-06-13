@@ -31,11 +31,85 @@
       return this.tab === checkTab;
     };
 
+<<<<<<< HEAD
 
     this.addRow = function($scope) {
       $('.key-value-pairs').append("<div class = 'row'><div class = 'col-md-6'><div class='form-group'><input type='text' class='form-control'></div></div><div class = 'col-md-6'><div class='form-group'><input type='text' class='form-control'></div></div></div>");
     }
 
+=======
+    this.queryAllClick = function(){
+      if (document.getElementById("map_key1").value!="" && document.getElementById("map_value1").value!=""){
+        var obj = {};
+        obj[document.getElementById("map_key1").value] = document.getElementById("map_value1").value;
+
+        Clotho.query(obj).then(function(result){
+          console.log(result);
+          if (result != null){
+            var data = JSON.stringify(result);
+            $("#edit_json_object").val(data);
+            $('#error_field').text('Objects found: ' + data);
+          }
+          else{
+            $('#error_field').text('Cannot find object(s); the object may not exist or connection may be lost');
+          }
+        });
+      }
+      else if (document.getElementById("json_obj").value!=""){
+          var obj = JSON.parse(document.getElementById("json_obj").value);
+          Clotho.query(obj).then(function(result){
+          console.log(result);
+          if (result != null){
+            var data = JSON.stringify(result);
+            $("#edit_json_object").val(data);
+            $('#error_field').text('Objects found: ' + data);
+          }
+          else{
+            $('#error_field').text('Cannot find object(s); the object may not exist or connection may be lost');
+          }
+        });
+      }
+      else{
+        $('#error_field').text('Please fill out the appropriate fields.');
+      }
+  };
+
+    this.queryOneClick = function(){
+      if (document.getElementById("map_key1").value!="" && document.getElementById("map_value1").value!=""){
+        var obj = {};
+        obj[document.getElementById("map_key1").value] = document.getElementById("map_value1").value;
+
+        Clotho.queryOne(obj).then(function(result){
+          console.log(result);
+          if (result != null){
+            var data = JSON.stringify(result);
+            $('#error_field').text('Objects found: ' + data);
+            $("#edit_json_object").val(data);
+          }
+          else{
+            $('#error_field').text('Cannot find object(s); the object may not exist or connection may be lost');
+          }
+        });
+      }
+      else if (document.getElementById("json_obj").value!=""){
+          var obj = JSON.parse(document.getElementById("json_obj").value);
+          Clotho.queryOne(obj).then(function(result){
+          console.log(result);
+          if (result != null){
+            var data = JSON.stringify(result);
+            $('#error_field').text('Objects found: ' + data);
+            $("#edit_json_object").val(data);
+          }
+          else{
+            $('#error_field').text('Cannot find object(s); the object may not exist or connection may be lost');
+          }
+        });
+      }
+      else{
+        $('#error_field').text('Please fill out the appropriate fields.');
+      }
+    };
+>>>>>>> origin/master
 
     this.csqClick = function(){
       switch(this.tab){
@@ -52,7 +126,7 @@
               $('#error_field').text('Object created with ID: ' +result);
             }
             else{
-              $('#error_field').text('Cannot create object; connection may be lost or you may not be logged in.');
+              $('#error_field').text('Cannot create object; connection may be lost.');
             }
       		});
         }
@@ -64,7 +138,7 @@
               $('#error_field').text('Object created with ID: ' +result);
             }
             else{
-              $('#error_field').text('Cannot destroy object; connection may be lost or you may not be logged in.');
+              $('#error_field').text('Cannot create object; connection may be lost.');
             }
       		});
         }
@@ -74,7 +148,25 @@
         break;
 
         case 2:
+<<<<<<< HEAD
 
+=======
+          if (document.getElementById("edit_json_object").value!=""){
+            var obj = JSON.parse(document.getElementById("edit_json_object").value);
+            Clotho.set(obj).then(function(result){
+            console.log(result);
+            if (result != null){
+              $('#error_field').text('Object with ID: ' + result + ' changed.');
+            }
+            else{
+              $('#error_field').text('Cannot change object; connection may be lost or object may not exist.');
+            }
+          });
+        }
+        else{
+          $('#error_field').text('Please fill out the appropriate fields.');
+        }
+>>>>>>> origin/master
          break;
 
          case 3:
@@ -90,7 +182,7 @@
                 $('#error_field').text('Objects found: ' + data);
               }
               else{
-                $('#error_field').text('Cannot create object; connection may be lost or you may not be logged in.');
+                $('#error_field').text('Cannot find object(s); the object may not exist or connection may be lost');
               }
         		});
           }
@@ -103,7 +195,7 @@
                 $('#error_field').text('Objects found: ' + data);
               }
               else{
-                $('#error_field').text('Cannot destroy object; connection may be lost or you may not be logged in.');
+                $('#error_field').text('Cannot find object(s); the object may not exist or connection may be lost');
               }
         		});
           }
