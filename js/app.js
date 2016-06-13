@@ -30,7 +30,12 @@
     };
   });
 
-
+  app.directive("menuBar", function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'menu-bar.html'
+    };
+  });
 
    var functionText = ["Choose a function",
                 "create()",
