@@ -15,6 +15,45 @@
       return this.tab === checkTab;
     };
 
+    this.queryAllClick = function(){
+
+    };
+
+    this.queryOneClick = function(){
+      if (document.getElementById("map_key1").value!="" && document.getElementById("map_value1").value!=""){
+        var obj = {};
+        obj[document.getElementById("map_key1").value] = document.getElementById("map_value1").value;
+        obj[document.getElementById("map_key2").value] = document.getElementById("map_value2").value;
+        obj[document.getElementById("map_key3").value] = document.getElementById("map_value3").value;
+        Clotho.queryOne(obj).then(function(result){
+          console.log(result);
+          if (result != null){
+            var data = JSON.stringify(result);
+            $('#error_field').text('Objects found: ' + data);
+          }
+          else{
+            $('#error_field').text('Cannot find object(s); the object may not exist or connection may be lost');
+          }
+        });
+      }
+      else if (document.getElementById("json_object").value!=""){
+          var obj = JSON.parse(document.getElementById("json_object").value);
+          Clotho.queryOne(obj).then(function(result){
+          console.log(result);
+          if (result != null){
+            var data = JSON.stringify(result);
+            $('#error_field').text('Objects found: ' + data);
+          }
+          else{
+            $('#error_field').text('Cannot find object(s); the object may not exist or connection may be lost');
+          }
+        });
+      }
+      else{
+        $('#error_field').text('Please fill out the appropriate fields.');
+      }
+    };
+
     this.csqClick = function(){
       switch(this.tab){
 
