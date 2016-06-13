@@ -1,8 +1,7 @@
-
+  var loginCheck = false;
 
 (function() {
   var app = angular.module('appPage', []);
-
   app.controller("DropdownController", function() {
     this.tab = 0;
     this.buttonText = functionText[this.tab];
@@ -32,6 +31,12 @@ function loginClick() {
     var password = document.getElementById("password_input").value;
     Clotho.login(username,password).then(function(result){
 			console.log(result);
+      if (result != null){
+        $('#error_field').text('Logged in! Welcome, '+username);
+      }
+      else{
+        $('#error_field').text('Cannot log in; please check your connection or username and password and try again');
+      }
 		});
   }
 
