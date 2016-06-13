@@ -43,6 +43,14 @@
         <h1>Necessitas:</h1> <h2>Clotho Test Case </h2>
       </div>
 
+      <!--where any error message will go-->
+      <div class="row">
+        <div class="col-md-6">
+          <div style="margin-bottom: 25px">
+            <p id = "error_field"></p>
+          </div>
+        </div>
+      </div>
       <!-- selection -->
       <section ng-controller="DropdownController as drop">
         <div class="dropdown" style="margin-bottom: 25px">
@@ -71,7 +79,7 @@
             <label for="map_value">Value:</label>
             <input type="text" class="form-control" id="map_value">
           </div>
-          <button type="button" class="btn btn-primary">Enter</button>
+          <button type="button" class="btn btn-primary" onclick="csqClick()">Enter</button>
         </div>
 
         <!-- div for destroy and get-->

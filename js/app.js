@@ -35,7 +35,7 @@ function loginClick() {
         $('#error_field').text('Logged in! Welcome, '+username);
       }
       else{
-        $('#error_field').text('Cannot log in; please check your connection or username and password and try again');
+        $('#error_field').text('Cannot log in; connection may be lost or user may not exist.');
       }
 		});
   }
@@ -45,5 +45,23 @@ function createUserClick(){
      var password = document.getElementById("new_password_input").value;
      Clotho.createUser(username,password).then(function(result){
      console.log(result);
+     if (result != null){
+       $('#error_field').text('User is Created! Welcome, '+username+'. Please try logging in now!');
+     }
+     else{
+       $('#error_field').text('Cannot create user; connection may be lost or user may already exist.');
+     }
   });
+}
+
+function csqClick(){
+  if (DropdownController.tab == 1){
+    $('#error_field').text('Cannot create user; connection may be lost or user may already exist.');
+  }
+  else if (DropdownController.tab == 1){
+
+  }
+  else if (DropdownController.tab == 1){
+
+  }
 }
