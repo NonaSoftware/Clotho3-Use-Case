@@ -17,15 +17,50 @@
     this.csqClick = function(){
       switch(this.tab){
        case 1:
+       var mKey = document.getElementById("map_key").value;
+       var vKey = document.getElementById("value_key").value;
+       var jsonO = document.getElementById("json_object").value;
+        if (mKey!="" && vKey!=""){
+          Clotho.create().then(function(result){
+      			console.log(result);
+      		});
+        }
+        else if (jsonO!=""){
+            var obj = JSON.parse(jsonO);
+            Clotho.create(obj).then(function(result){
+      			console.log(result);
+      		});
+        }
+        else{
+          $('#error_field').text('Please fill out the appropriate fields.');
+        }
+        break;
        case 2:
        case 3:
        case 4:
           var id = document.getElementById("id_number").value;
      		  Clotho.destroy(id).then(function(result){
    			      console.log(result);
+              if (result != null){
+                $('#error_field').text('Destroyed object with ID: '+result);
+              }
+              else{
+                $('#error_field').text('Cannot destroy object; connection may be lost or object may not exist.');
+              }
           });
           break;
        case 5:
+          var id = document.getElementById("id_number").value;
+          Clotho.get(id).then(function(result){
+            console.log(result);
+            if (result != null){
+              $('#error_field').text('Object with ID: '+result);
+            }
+            else{
+              $('#error_field').text('Cannot get object; connection may be lost or object may not exist.');
+            }
+          });
+       break;
      };
     };
   });
@@ -40,9 +75,9 @@
    var functionText = ["Choose a function",
                 "create()",
                 "set()",
-                "get()",
+                "query()",
                 "destroy()",
-                "query()"];
+                "get()"];
 
 })();
 

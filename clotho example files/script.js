@@ -7,10 +7,10 @@ function clothoTest(){
 		Clotho.login(username,password).then(function(result){
 			console.log(result);
 		});
-		var obj = {};
-		obj["name"] = "example";
-		obj["dna"] = "tcgctcgc";
-		obj["schema"] = "org.clothocad.model.sequence";
+		var obj = {"firstName":"John", "lastName":"Doe"};
+		//obj["name"] = "example";
+	//	obj["dna"] = "tcgctcgc";
+		//obj["schema"] = "org.clothocad.model.sequence";
 		Clotho.create(obj).then(function(result){
 			console.log(result);
 		});
