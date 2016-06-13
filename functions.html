@@ -17,7 +17,7 @@
     <menu-bar></menu-bar>
     <div class="container">
       <!-- jumbotron -->
-      <div class ="jumbotron" style="margin-top: 10px">
+      <div class ="jumbotron" ng-hide="true" style="margin-top: 10px">
         <h1>Necessitas:</h1> <h2>Clotho Test Case </h2>
       </div>
 
@@ -55,53 +55,14 @@
               <p><b>Or Insert Map</b></p>
             </div>
           </div>
-
-          <div class = "row">
-            <div class = "col-md-6">
-              <div class="form-group">
-                <label for="map_key1"><p>Key:</p></label>
-                <input type="text" class="form-control" id="map_key1">
-              </div>
-            </div>
-
-            <div class = "col-md-6">
-              <div class="form-group">
-                <label for="map_value1"><p>Value:</p></label>
-                <input type="text" class="form-control" id="map_value1">
-              </div>
-            </div>
-          </div>
-
-          <div class = "row">
-            <div class = "col-md-6">
-              <div class="form-group">
-                <input type="text" class="form-control" id="map_key2">
-              </div>
-            </div>
-
-            <div class = "col-md-6">
-              <div class="form-group">
-                <input type="text" class="form-control" id="map_value2">
-              </div>
-            </div>
-          </div>
-
-          <div class = "row">
-            <div class = "col-md-6">
-              <div class="form-group">
-                <input type="text" class="form-control" id="map_key3">
-              </div>
-            </div>
-
-            <div class = "col-md-6">
-              <div class="form-group">
-                <input type="text" class="form-control" id="map_value3">
-              </div>
-            </div>
+          <div class="key-value-pairs">
+            <key-value></key-value>
+            <key-value></key-value>
           </div>
 
 
-          <button type="button" class="btn btn-primary" ng-click="">+</button>
+
+          <button type="button" class="btn btn-primary" ng-click="drop.addRow()">+</button>
 
           <button type="button" class="btn btn-primary" ng-click="drop.csqClick()">Enter</button>
         </div>

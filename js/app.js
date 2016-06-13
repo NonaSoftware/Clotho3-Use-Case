@@ -2,6 +2,22 @@
 
 (function() {
   var app = angular.module('appPage', []);
+
+
+  app.directive("menuBar", function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'menu-bar.html'
+    };
+  });
+
+  app.directive("keyValue", function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'key-value.html'
+    };
+  });
+
   app.controller("DropdownController", function() {
     this.tab = 0;
     this.buttonText = functionText[this.tab];
@@ -14,6 +30,12 @@
     this.isSelected = function(checkTab) {
       return this.tab === checkTab;
     };
+
+
+    this.addRow = function($scope) {
+      $('.key-value-pairs').append("<div class = 'row'><div class = 'col-md-6'><div class='form-group'><input type='text' class='form-control'></div></div><div class = 'col-md-6'><div class='form-group'><input type='text' class='form-control'></div></div></div>");
+    }
+
 
     this.csqClick = function(){
       switch(this.tab){
@@ -52,7 +74,7 @@
         break;
 
         case 2:
-        
+
          break;
 
          case 3:
@@ -120,12 +142,6 @@
     };
   });
 
-  app.directive("menuBar", function() {
-    return {
-      restrict: 'E',
-      templateUrl: 'menu-bar.html'
-    };
-  });
 
    var functionText = ["Choose a function",
                 "create()",
@@ -135,6 +151,8 @@
                 "get()"];
 
 })();
+
+
 
 function loginClick() {
    var username = document.getElementById("username_input").value;
