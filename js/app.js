@@ -15,16 +15,18 @@
     };
 
     this.csqClick = function(){
-      if (this.tab === 1){
-        $('#error_field').text('Cannot create user; connection may be lost or user may already exist.');
-      }
-      else if (this.tab === 2){
-
-      }
-      else if (this.tab === 3){
-
-      }
-    };
+      switch(this.tab){
+       case 1:
+       case 2:
+       case 3:
+       case 4:
+          var id = document.getElementById("id_number").value;
+     		  Clotho.destroy(id).then(function(result){
+   			      console.log(result);
+          });
+          break;
+       case 5:
+     };
   });
 
 
