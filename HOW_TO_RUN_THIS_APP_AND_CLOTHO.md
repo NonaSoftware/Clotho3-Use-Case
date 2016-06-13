@@ -11,7 +11,7 @@ Initialization steps:
 
 Steps to run Clotho EVERY time:
 1. In the command prompt, navigate the the bin of the mongodb folder and execute the command: mongod --dbpath //path to the data folder here
-2. Run clotho3 in Netbeans (here you may also notice some tests failing or warnings)
+2. Run clotho3: ClothoAuthoringEnvironment in Netbeans (here you may also notice some tests failing or warnings)
 3. Open a browser and go to https:/localhost:8443 (your browser may warn you of an unsafe connection, continue past this warning)
 stay on this page!
 
@@ -30,7 +30,7 @@ Initialization steps:
 
 Steps to run Clotho EVERY time:
 1. In the terminal, navigate the the bin of the mongodb folder and execute the command: ./mongod --dbpath /<saved location>/mongodb-osx-x86_64-2.4.14/data/
-2. Run clotho3 in Netbeans (here you may also notice some tests failing or warnings)
+2. Run clotho3: ClothoAuthoringEnvironment in Netbeans (here you may also notice some tests failing or warnings)
 3. Open a browser and go to https:/localhost:8443 (your browser may warn you of an unsafe connection, continue past this warning)
 stay on this page!
 

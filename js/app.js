@@ -7,6 +7,7 @@
     this.buttonText = functionText[this.tab];
 
     this.selectTab = function(setTab) {
+      $('#error_field').text(" ");
       this.tab = setTab;
       this.buttonText = functionText[this.tab];
     };
@@ -16,12 +17,17 @@
 
     this.csqClick = function(){
       switch(this.tab){
+
        case 1:
-        if (document.getElementById("map_key").value!="" && document.getElementById("value_key").value!=""){
-          Clotho.create().then(function(result){
+        if (document.getElementById("map_key1").value!="" && document.getElementById("map_value1").value!=""){
+          var obj = {};
+          obj[document.getElementById("map_key1").value] = document.getElementById("map_value1").value;
+          obj[document.getElementById("map_key2").value] = document.getElementById("map_value2").value;
+          obj[document.getElementById("map_key3").value] = document.getElementById("map_value3").value;
+          Clotho.create(obj).then(function(result){
       			console.log(result);
             if (result != null){
-              $('#error_field').text(result);
+              $('#error_field').text('Object created with ID: ' +result);
             }
             else{
               $('#error_field').text('Cannot create object; connection may be lost or you may not be logged in.');
@@ -33,7 +39,7 @@
             Clotho.create(obj).then(function(result){
       			console.log(result);
             if (result != null){
-              $('#error_field').text(result);
+              $('#error_field').text('Object created with ID: ' +result);
             }
             else{
               $('#error_field').text('Cannot destroy object; connection may be lost or you may not be logged in.');
@@ -44,8 +50,45 @@
           $('#error_field').text('Please fill out the appropriate fields.');
         }
         break;
-       case 2:
-       case 3:
+
+        case 2:
+        
+         break;
+
+         case 3:
+          if (document.getElementById("map_key1").value!="" && document.getElementById("map_value1").value!=""){
+            var obj = {};
+            obj[document.getElementById("map_key1").value] = document.getElementById("map_value1").value;
+            obj[document.getElementById("map_key2").value] = document.getElementById("map_value2").value;
+            obj[document.getElementById("map_key3").value] = document.getElementById("map_value3").value;
+            Clotho.query(obj).then(function(result){
+        			console.log(result);
+              if (result != null){
+                var data = JSON.stringify(result);
+                $('#error_field').text('Objects found: ' + data);
+              }
+              else{
+                $('#error_field').text('Cannot create object; connection may be lost or you may not be logged in.');
+              }
+        		});
+          }
+          else if (document.getElementById("json_object").value!=""){
+              var obj = JSON.parse(document.getElementById("json_object").value);
+              Clotho.query(obj).then(function(result){
+        			console.log(result);
+              if (result != null){
+                var data = JSON.stringify(result);
+                $('#error_field').text('Objects found: ' + data);
+              }
+              else{
+                $('#error_field').text('Cannot destroy object; connection may be lost or you may not be logged in.');
+              }
+        		});
+          }
+          else{
+            $('#error_field').text('Please fill out the appropriate fields.');
+          }
+          break;
        case 4:
           var id = document.getElementById("id_number").value;
      		  Clotho.destroy(id).then(function(result){
@@ -58,18 +101,21 @@
               }
           });
           break;
+
        case 5:
           var id = document.getElementById("id_number").value;
           Clotho.get(id).then(function(result){
             console.log(result);
             if (result != null){
-              $('#error_field').text('Object with ID: '+result);
+              var data = JSON.stringify(result);
+              $('#error_field').text('Object details: '+data);
             }
             else{
               $('#error_field').text('Cannot get object; connection may be lost or object may not exist.');
             }
           });
        break;
+
      };
     };
   });
