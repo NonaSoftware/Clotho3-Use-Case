@@ -31,13 +31,11 @@
       return this.tab === checkTab;
     };
 
-<<<<<<< HEAD
 
     this.addRow = function($scope) {
       $('.key-value-pairs').append("<div class = 'row'><div class = 'col-md-6'><div class='form-group'><input type='text' class='form-control'></div></div><div class = 'col-md-6'><div class='form-group'><input type='text' class='form-control'></div></div></div>");
-    }
+    };
 
-=======
     this.queryAllClick = function(){
       if (document.getElementById("map_key1").value!="" && document.getElementById("map_value1").value!=""){
         var obj = {};
@@ -72,7 +70,7 @@
       else{
         $('#error_field').text('Please fill out the appropriate fields.');
       }
-  };
+   };
 
     this.queryOneClick = function(){
       if (document.getElementById("map_key1").value!="" && document.getElementById("map_value1").value!=""){
@@ -109,7 +107,7 @@
         $('#error_field').text('Please fill out the appropriate fields.');
       }
     };
->>>>>>> origin/master
+
 
     this.csqClick = function(){
       switch(this.tab){
@@ -148,9 +146,7 @@
         break;
 
         case 2:
-<<<<<<< HEAD
 
-=======
           if (document.getElementById("edit_json_object").value!=""){
             var obj = JSON.parse(document.getElementById("edit_json_object").value);
             Clotho.set(obj).then(function(result){
@@ -166,7 +162,6 @@
         else{
           $('#error_field').text('Please fill out the appropriate fields.');
         }
->>>>>>> origin/master
          break;
 
          case 3:
