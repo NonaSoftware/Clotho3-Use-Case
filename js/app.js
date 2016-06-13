@@ -52,7 +52,7 @@
         break;
 
         case 2:
-        
+
          break;
 
          case 3:
@@ -119,6 +119,10 @@
      };
     };
   });
+
+  this.queryClick=function(){
+    
+  }
 
   app.directive("menuBar", function() {
     return {
