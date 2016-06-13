@@ -1,0 +1,9 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin-top: 25px;
+}
+
+#navigation {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

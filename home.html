@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="appPage">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Clotho Use Case</title>
+    <title>Clotho Use Case - Home</title>
     <link rel="icon" href="img/NonaIcon.png">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
   </head>
-  <body style="margin-top: 25px">
+  <body>
     <div class="container">
 
       <!-- image -->
-      <div class="row">
-        <div class="col-md-2"> <img src="img/NonaFoundation.png" width="auto" height="55px"></div>
+      <div class="row" id="navigation">
+        <div class="col-md-2"> <img src="img/NonaFoundation.png" width="auto" height="55px" style="padding-bottom: 5px; padding-top: 5px;"></div>
 
         <nav class="navbar navbar-inverse col-md-10">
           <div class="container-fluid">
@@ -38,7 +41,7 @@
       <!-- jumbotron -->
 
       <div class="container">
-      <div class ="jumbotron ng-hide" style="margin-top: 10px" ng-hide="">
+      <div class ="jumbotron" style="margin-top: 10px" ng-hide="true">
         <h1>Necessitas:</h1> <h2>Clotho Test Case </h2>
       </div>
 
@@ -68,5 +71,6 @@
       <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
       <script type="text/javascript" src="js/app.js"></script>
+
   </body>
 </html>
