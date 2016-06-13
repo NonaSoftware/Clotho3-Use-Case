@@ -13,6 +13,18 @@
     this.isSelected = function(checkTab) {
       return this.tab === checkTab;
     };
+
+    this.csqClick = function(){
+      if (this.tab === 1){
+        $('#error_field').text('Cannot create user; connection may be lost or user may already exist.');
+      }
+      else if (this.tab === 2){
+
+      }
+      else if (this.tab === 3){
+
+      }
+    };
   });
 
 
@@ -52,16 +64,4 @@ function createUserClick(){
        $('#error_field').text('Cannot create user; connection may be lost or user may already exist.');
      }
   });
-}
-
-function csqClick(){
-  if (DropdownController.tab == 1){
-    $('#error_field').text('Cannot create user; connection may be lost or user may already exist.');
-  }
-  else if (DropdownController.tab == 1){
-
-  }
-  else if (DropdownController.tab == 1){
-
-  }
 }
