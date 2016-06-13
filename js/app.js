@@ -30,7 +30,7 @@
               $('#error_field').text('Object created with ID: ' +result);
             }
             else{
-              $('#error_field').text('Cannot create object; connection may be lost or you may not be logged in.');
+              $('#error_field').text('Cannot create object; connection may be lost.');
             }
       		});
         }
@@ -42,7 +42,7 @@
               $('#error_field').text('Object created with ID: ' +result);
             }
             else{
-              $('#error_field').text('Cannot destroy object; connection may be lost or you may not be logged in.');
+              $('#error_field').text('Cannot create object; connection may be lost.');
             }
       		});
         }
@@ -52,7 +52,21 @@
         break;
 
         case 2:
-
+          if (document.getElementById("edit_json_object").value!=""){
+            var obj = JSON.parse(document.getElementById("edit_json_object").value);
+            Clotho.set(obj).then(function(result){
+            console.log(result);
+            if (result != null){
+              $('#error_field').text('Object with ID: ' + result + ' changed.');
+            }
+            else{
+              $('#error_field').text('Cannot change object; connection may be lost or object may not exist.');
+            }
+          });
+        }
+        else{
+          $('#error_field').text('Please fill out the appropriate fields.');
+        }
          break;
 
          case 3:
@@ -68,7 +82,7 @@
                 $('#error_field').text('Objects found: ' + data);
               }
               else{
-                $('#error_field').text('Cannot create object; connection may be lost or you may not be logged in.');
+                $('#error_field').text('Cannot find object(s); the object may not exist or connection may be lost');
               }
         		});
           }
@@ -81,7 +95,7 @@
                 $('#error_field').text('Objects found: ' + data);
               }
               else{
-                $('#error_field').text('Cannot destroy object; connection may be lost or you may not be logged in.');
+                $('#error_field').text('Cannot find object(s); the object may not exist or connection may be lost');
               }
         		});
           }
