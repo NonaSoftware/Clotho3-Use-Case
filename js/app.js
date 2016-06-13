@@ -120,10 +120,6 @@
     };
   });
 
-  this.queryClick=function(){
-    
-  }
-
   app.directive("menuBar", function() {
     return {
       restrict: 'E',
