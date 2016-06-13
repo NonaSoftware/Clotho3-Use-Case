@@ -36,6 +36,7 @@
       $('.key-value-pairs').append("<div class = 'row'><div class = 'col-md-6'><div class='form-group'><input type='text' class='form-control'></div></div><div class = 'col-md-6'><div class='form-group'><input type='text' class='form-control'></div></div></div>");
     };
 
+
     this.queryAllClick = function(){
       if (document.getElementById("map_key1").value!="" && document.getElementById("map_value1").value!=""){
         var obj = {};
@@ -146,7 +147,6 @@
         break;
 
         case 2:
-
           if (document.getElementById("edit_json_object").value!=""){
             var obj = JSON.parse(document.getElementById("edit_json_object").value);
             Clotho.set(obj).then(function(result){
