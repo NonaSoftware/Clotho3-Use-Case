@@ -17,16 +17,13 @@
     this.csqClick = function(){
       switch(this.tab){
        case 1:
-       var mKey = document.getElementById("map_key").value;
-       var vKey = document.getElementById("value_key").value;
-       var jsonO = document.getElementById("json_object").value;
-        if (mKey!="" && vKey!=""){
+        if (document.getElementById("map_key").value!="" && document.getElementById("value_key").value!=""){
           Clotho.create().then(function(result){
       			console.log(result);
       		});
         }
-        else if (jsonO!=""){
-            var obj = JSON.parse(jsonO);
+        else if (document.getElementById("json_object").value!=""){
+            var obj = JSON.parse(document.getElementById("json_object").value);
             Clotho.create(obj).then(function(result){
       			console.log(result);
       		});
