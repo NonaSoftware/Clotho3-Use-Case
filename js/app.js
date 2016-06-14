@@ -25,13 +25,22 @@
   app.controller("keyValController", function() {
     this.kvlist = [];  //array of key-value objects []{key:'asdf', value:'1234'},{...},{...}]
 
-    this.submitPairs = function(userData) {
-      userData = this.kvlist;
+    this.kvobj = {};
+    this.keys = [];
+    this.values = [];
+
+    this.submitPairs = function() {
+      var fillObj = {};
+
+      this.kvobj = JSON.stringify(fillObj);
+      console.log(this.kvobj);
     };
 
+
     this.addRow = function() {
-      var emptyObj = {};
-      this.kvlist.push(emptyObj);
+      var emptyStr= "";
+      this.keys.push(emptyStr);
+      this.values.push(emptyStr);
     };
   });
 
