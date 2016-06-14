@@ -57,23 +57,23 @@
           </div>
 
           <div class = "row">
-            <div class = "col-md-6">
+            <div class = "col-md-6 col-sm-6">
               <p><b>Key:</b></p>
             </div>
-            <div class = "col-md-6">
+            <div class = "col-md-6 col-sm-6">
               <p><b>Value:</b></p>
             </div>
           </div>
-          
-          <div class="key-value-pairs" ng-repeat="letter in drop.dummyArray">
-            <key-value></key-value>
-          </div>
 
-
-
-          <button type="button" class="btn btn-primary" ng-click="drop.addRow()">+</button>
+          <section ng-controller="keyValController as keyValCtrl">
+            <div class="key-value-pairs" ng-repeat="kvPair in keyValCtrl.kvlist track by $index">
+              <key-value></key-value>
+            </div>
+            <button type="button" class="btn btn-primary" ng-click="keyValCtrl.addRow()">+</button>
+          </section>
 
           <button type="button" class="btn btn-primary" ng-click="drop.csqClick()">Enter</button>
+
         </div>
 
         <!--div for set-->

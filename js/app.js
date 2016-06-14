@@ -18,10 +18,28 @@
     };
   });
 
+  app.controller("functionController", function () {
+    this.userData = [];
+  });
+
+  app.controller("keyValController", function() {
+    this.kvlist = [];  //array of key-value objects []{key:'asdf', value:'1234'},{...},{...}]
+
+    this.submitPairs = function(userData) {
+      userData = this.kvlist;
+    };
+
+    this.addRow = function() {
+      var emptyObj = {};
+      this.kvlist.push(emptyObj);
+    };
+  });
+
   app.controller("DropdownController", function() {
     this.tab = 0;
     this.dummyArray = [0];
     this.val = 0;
+    this.map = [];
     this.buttonText = functionText[this.tab];
 
     this.selectTab = function(setTab) {
@@ -31,13 +49,6 @@
     };
     this.isSelected = function(checkTab) {
       return this.tab === checkTab;
-    };
-
-
-
-    this.addRow = function() {
-      this.val += 1;
-      this.dummyArray.push(this.val);
     };
 
     this.queryAllClick = function(){
