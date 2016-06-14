@@ -43,11 +43,11 @@
           </ul>
         </div>
 
-        <!--div for create, set, query -->
+        <!--div for create, query -->
         <div ng-show="drop.isSelected(1)  || drop.isSelected(3)">
           <div class="form-group">
-            <label for="json_object">Insert JSON Object:</label>
-            <textarea class="form-control" rows="5" id="json_object"></textarea>
+            <label for="json_obj">Insert JSON Object:</label>
+            <textarea class="form-control" rows="5" id="json_obj"></textarea>
           </div>
 
           <div class = "row">
@@ -64,19 +64,28 @@
               <p><b>Value:</b></p>
             </div>
           </div>
-          
+
           <div class="key-value-pairs" ng-repeat="letter in drop.dummyArray">
             <key-value></key-value>
           </div>
 
-
-
           <button type="button" class="btn btn-primary" ng-click="drop.addRow()">+</button>
-
           <button type="button" class="btn btn-primary" ng-click="drop.csqClick()">Enter</button>
         </div>
 
-        <!--div for set-->
+        <!--buttons for query-->
+        <div ng-show = "drop.isSelected(3)">
+          <div class = "row" style="margin-top: 25px">
+            <div class = "col-md-6">
+              <button type="button" class="btn btn-primary" ng-click="drop.queryOneClick()">Query One</button>
+            </div>
+            <div class = "col-md-6">
+              <button type="button" class="btn btn-primary" ng-click="drop.queryAllClick()">Query All</button>
+            </div>
+          </div>
+        </div>
+
+        <!--section for set-->
         <div ng-show = "drop.isSelected(2)">
 
           <div class = "row">
