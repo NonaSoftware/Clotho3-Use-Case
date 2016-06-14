@@ -41,24 +41,8 @@
     };
 
     this.queryAllClick = function(){
-      if (document.getElementById("map_key1").value!=""){
-        try{
-          var obj = {};
-          obj[document.getElementById("map_key1").value] =
-          document.getElementById("map_value1").value;
-
-          Clotho.query(obj).then(function(result){
-            console.log(result);
-            var data = JSON.stringify(result, null, 3);
-            $("#edit_json_object").val(data);
-            $('#error_field').text('Objects found: ' + data);
-          });
-        }
-        catch(err){
-          $('#error_field').text(err.message);
-        }
-      }
-      else if (document.getElementById("json_obj").value!=""){
+      //insert adding in key/value pairs here
+      if (document.getElementById("json_obj").value!=""){
         try{
           var obj = JSON.parse(document.getElementById("json_obj").value);
           Clotho.query(obj).then(function(result){
@@ -78,24 +62,8 @@
    };
 
     this.queryOneClick = function(){
-      if (document.getElementById("map_key1").value!=""){
-        try{
-          var obj = {};
-          obj[document.getElementById("map_key1").value] =
-          document.getElementById("map_value1").value;
-
-          Clotho.queryOne(obj).then(function(result){
-            console.log(result);
-            var data = JSON.stringify(result, null, 3);
-            $("#edit_json_object").val(data);
-            $('#error_field').text('Objects found: ' + data);
-          });
-        }
-        catch(err){
-          $('#error_field').text(err.message);
-        }
-      }
-      else if (document.getElementById("json_obj").value!=""){
+      //insert adding in key/value pairs here
+      if (document.getElementById("json_obj").value!=""){
         try{
           var obj = JSON.parse(document.getElementById("json_obj").value);
           Clotho.queryOne(obj).then(function(result){
@@ -156,7 +124,7 @@
             }
          break;
 
-         
+
        case 4:
           var id = document.getElementById("id_number").value;
      		  Clotho.destroy(id).then(function(result){
