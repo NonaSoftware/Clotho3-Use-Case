@@ -25,8 +25,6 @@
   app.controller("keyValController", function() {
     this.kvlist = [];  //array of key-value objects [{key:'asdf', value:'1234'},{...},{...}]
 
-    //this.kvobj = {};
-
     this.submitPairs = function() {
       console.log(kvObj);
     };
