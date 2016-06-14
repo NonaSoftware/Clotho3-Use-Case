@@ -194,7 +194,8 @@
 
 
 function loginClick() {
-   var username = document.getElementById("username_input").value;
+  try{
+    var username = document.getElementById("username_input").value;
     var password = document.getElementById("password_input").value;
     Clotho.login(username,password).then(function(result){
 			console.log(result);
@@ -202,10 +203,14 @@ function loginClick() {
         $('#error_field').text('Logged in! Welcome, '+username);
       }
       else{
-        $('#error_field').text('Cannot log in; connection may be lost or user may not exist.');
+        $('#error_field').text('Cannot log in; you are already logged in or user may not exist.');
       }
 		});
   }
+  catch(err){
+      $('#error_field').text(err.message);
+  }
+}
 
 function createUserClick(){
     var username = document.getElementById("new_username_input").value;
@@ -219,4 +224,18 @@ function createUserClick(){
        $('#error_field').text('Cannot create user; connection may be lost or user may already exist.');
      }
   });
+}
+
+function logoutClick(){
+  try{
+    Clotho.logout().then(function(result){
+      console.log(result);
+      if(result){
+        $('#error_field').text('You have sucessfully logged out, Goodbye!');
+      }
+    });
+  }
+  catch(err){
+    $('#error_field').text(err.message);
+  }
 }
