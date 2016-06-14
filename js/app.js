@@ -20,6 +20,8 @@
 
   app.controller("DropdownController", function() {
     this.tab = 0;
+    this.dummyArray = [0];
+    this.val = 0;
     this.buttonText = functionText[this.tab];
 
     this.selectTab = function(setTab) {
@@ -32,10 +34,11 @@
     };
 
 
-    this.addRow = function($scope) {
-      $('.key-value-pairs').append("<div class = 'row'><div class = 'col-md-6'><div class='form-group'><input type='text' class='form-control'></div></div><div class = 'col-md-6'><div class='form-group'><input type='text' class='form-control'></div></div></div>");
-    };
 
+    this.addRow = function() {
+      this.val += 1;
+      this.dummyArray.push(this.val);
+    };
 
     this.queryAllClick = function(){
       if (document.getElementById("map_key1").value!="" && document.getElementById("map_value1").value!=""){
