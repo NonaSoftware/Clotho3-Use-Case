@@ -13,7 +13,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
   </head>
-  <body style="margin-top: 25px; margin-bottom: 25px">
+  <body style="margin-top: 25px; margin-bottom: 25px" ng-controller="functionController as functionCtrl">
     <menu-bar></menu-bar>
     <div class="container">
       <!-- jumbotron -->
@@ -66,7 +66,7 @@
           </div>
 
           <section ng-controller="keyValController as keyValCtrl">
-            <div class="key-value-pairs" ng-repeat="kvPair in keyValCtrl.keys track by $index">
+            <div class="key-value-pairs" ng-repeat="kvPair in keyValCtrl.kvlist track by $index">
               <key-value></key-value>
             </div>
             <div class="row">

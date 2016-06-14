@@ -2,7 +2,7 @@
 
 (function() {
   var app = angular.module('appPage', []);
-
+  var kvObj = {};
 
   app.directive("menuBar", function() {
     return {
@@ -19,28 +19,21 @@
   });
 
   app.controller("functionController", function () {
-    this.userData = [];
+    this.kvObj = kvObj;
   });
 
   app.controller("keyValController", function() {
-    this.kvlist = [];  //array of key-value objects []{key:'asdf', value:'1234'},{...},{...}]
+    this.kvlist = [];  //array of key-value objects [{key:'asdf', value:'1234'},{...},{...}]
 
-    this.kvobj = {};
-    this.keys = [];
-    this.values = [];
+    //this.kvobj = {};
 
     this.submitPairs = function() {
-      var fillObj = {};
-
-      this.kvobj = JSON.stringify(fillObj);
-      console.log(this.kvobj);
+      console.log(kvObj);
     };
 
-
     this.addRow = function() {
-      var emptyStr= "";
-      this.keys.push(emptyStr);
-      this.values.push(emptyStr);
+      var emptyObj= {};
+      this.kvlist.push(emptyObj);
     };
   });
 
