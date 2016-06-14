@@ -88,9 +88,9 @@
 
        case 1:
        //insert getting the key-value pairs here
-       if (document.getElementById("json_object").value!=""){
+       if (document.getElementById("json_obj").value!=""){
          try{
-           var obj = JSON.parse(document.getElementById("json_object").value);
+           var obj = JSON.parse(document.getElementById("json_obj").value);
            Clotho.create(obj).then(function(result){
              console.log(result);
              if (result === undefined){
@@ -129,9 +129,7 @@
           var id = document.getElementById("id_number").value;
      		  Clotho.destroy(id).then(function(result){
    			      console.log(result);
-              if (result != null){
-                $('#error_field').text('Destroyed object with ID: '+result);
-              }
+              $('#error_field').text('Destroyed object with ID: '+result);
               else{
                 $('#error_field').text('Cannot destroy object; connection may be lost or object may not exist.');
               }
