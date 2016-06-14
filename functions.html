@@ -43,6 +43,12 @@
           </ul>
         </div>
 
+        <div class = "row" ng-show="drop.isSelected(2)" style="margin-top: 25px">
+          <div class = "col-md-6">
+            <p><b>First Query an Object</b></p>
+          </div>
+        </div>
+
         <!--div for create, set query -->
         <div ng-show="drop.isSelected(1) || drop.isSelected(2) || drop.isSelected(3)">
           <div class="form-group">
@@ -50,7 +56,16 @@
             <textarea class="form-control" rows="5" id="json_obj"></textarea>
           </div>
 
-          <div class = "row">
+          <!--buttons for insert JSON Object-->
+            <div class = "row" style="margin-top: 25px">
+              <div class = "col-md-6">
+                <button type="button" class="btn btn-primary" ng-show="drop.isSelected(3)||drop.isSelected(2)" ng-click="drop.queryOneClick()">Query One</button>
+                <button type="button" class="btn btn-primary" ng-show="drop.isSelected(3)||drop.isSelected(2)" ng-click="drop.queryAllClick()">Query All</button>
+                <button type="button" class="btn btn-primary" ng-show="drop.isSelected(1)" ng-click="drop.functionClick(false, true)">Create</button>
+              </div>
+            </div>
+
+          <div class = "row" style="margin-top: 25px">
             <div class = "col-md-6">
               <p><b>Or Insert Map</b></p>
             </div>
@@ -72,7 +87,7 @@
             <div class="row">
               <div class = "col-md-6">
                 <button type="button" class="btn btn-primary" ng-click="keyValCtrl.addRow()">+</button>
-                <button type="button" class="btn btn-primary" ng-show="drop.isSelected(1)" ng-click="drop.csqClick()">Create</button>
+                <button type="button" class="btn btn-primary" ng-show="drop.isSelected(1)" ng-click="drop.functionClick(false, true)">Create</button>
               </div>
             </div>
           </section>
@@ -95,13 +110,7 @@
         <!--section for set-->
         <div ng-show = "drop.isSelected(2)">
 
-          <div class = "row" style="margin-top: 25px">
-            <div class = "col-md-6">
-              <p><b>First Query an Object</b></p>
-            </div>
-          </div>
-
-          <div class = "row">
+          <div class = "row" style = "margin-top: 25px">
             <div class = "col-md-6">
               <button type="button" class="btn btn-primary" ng-click="drop.queryOneClick()">Query One</button>
               <button type="button" class="btn btn-primary" ng-click="drop.queryAllClick()">Query All</button>
@@ -114,7 +123,7 @@
           </div>
 
 
-          <button type="button" class="btn btn-primary" ng-click="drop.csqClick()">Edit</button>
+          <button type="button" class="btn btn-primary" ng-click="drop.csqClick(true)">Edit</button>
 
         </div>
 
@@ -124,7 +133,7 @@
             <label for="id_number">Insert ID Number:</label>
             <input type="text" class="form-control" id="id_number">
           </div>
-          <button type="button" class="btn btn-primary" ng-click="drop.csqClick()">Enter</button>
+          <button type="button" class="btn btn-primary" ng-click="drop.csqClick(false)">Enter</button>
         </div>
 
       </section>
