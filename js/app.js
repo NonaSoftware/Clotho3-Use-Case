@@ -152,6 +152,70 @@
             }
          break;
 
+         case 3:
+         if (map){
+           if(qOne){
+             try{
+               Clotho.queryOne(kvObj).then(function(result){
+                 console.log(result);
+                 var data = JSON.stringify(result, null, 3);
+                 $("#edit_json_object").val(data);
+                 $('#error_field').text('Objects found: ' + data);
+               });
+             }
+             catch(err){
+               $('#error_field').text(err.message);
+             }
+           }
+           else{
+             try{
+               Clotho.query(kvObj).then(function(result){
+                 console.log(result);
+                 var data = JSON.stringify(result, null, 3);
+                 $("#edit_json_object").val(data);
+                 $('#error_field').text('Objects found: ' + data);
+               });
+             }
+             catch(err){
+               $('#error_field').text(err.message);
+             }
+           }
+          }
+         else if (document.getElementById("json_obj").value!=""){
+           if(qOne){
+             try{
+               var obj = JSON.parse(document.getElementById("json_obj").value);
+               Clotho.queryOne(obj).then(function(result){
+                 console.log(result);
+                 var data = JSON.stringify(result, null, 3);
+                 $("#edit_json_object").val(data);
+                 $('#error_field').text('Objects found: ' + data);
+               });
+             }
+             catch(err){
+               $('#error_field').text(err.message);
+             }
+           }
+           else{
+             try{
+               var obj = JSON.parse(document.getElementById("json_obj").value);
+               Clotho.query(obj).then(function(result){
+                 console.log(result);
+                 var data = JSON.stringify(result, null, 3);
+                 $("#edit_json_object").val(data);
+                 $('#error_field').text('Objects found: ' + data);
+               });
+             }
+             catch(err){
+               $('#error_field').text(err.message);
+             }
+           }
+         }
+         else{
+           $('#error_field').text('Please fill out the appropriate fields.');
+         }
+         break;
+
 
        case 4:
         try{

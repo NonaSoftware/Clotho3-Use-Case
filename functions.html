@@ -59,8 +59,8 @@
           <!--buttons for insert JSON Object-->
             <div class = "row" style="margin-top: 25px">
               <div class = "col-md-6">
-                <button type="button" class="btn btn-primary" ng-show="drop.isSelected(3)||drop.isSelected(2)" ng-click="drop.queryOneClick()">Query One</button>
-                <button type="button" class="btn btn-primary" ng-show="drop.isSelected(3)||drop.isSelected(2)" ng-click="drop.queryAllClick()">Query All</button>
+                <button type="button" class="btn btn-primary" ng-show="drop.isSelected(3)||drop.isSelected(2)" ng-click="drop.functionClick(true, true)">Query One</button>
+                <button type="button" class="btn btn-primary" ng-show="drop.isSelected(3)||drop.isSelected(2)" ng-click="drop.functionClick(false, true)">Query All</button>
                 <button type="button" class="btn btn-primary" ng-show="drop.isSelected(1)" ng-click="drop.functionClick(false, true)">Create</button>
               </div>
             </div>
@@ -101,8 +101,8 @@
         <div ng-show = "drop.isSelected(3)">
           <div class = "row" style="margin-top: 25px">
             <div class = "col-md-6">
-              <button type="button" class="btn btn-primary" ng-click="drop.queryOneClick()">Query One</button>
-              <button type="button" class="btn btn-primary" ng-click="drop.queryAllClick()">Query All</button>
+              <button type="button" class="btn btn-primary" ng-click="drop.functionClick(true, false)">Query One</button>
+              <button type="button" class="btn btn-primary" ng-click="drop.functionClick(false, false)">Query All</button>
             </div>
           </div>
         </div>
@@ -123,7 +123,7 @@
           </div>
 
 
-          <button type="button" class="btn btn-primary" ng-click="drop.csqClick(true)">Edit</button>
+          <button type="button" class="btn btn-primary" ng-click="drop.functionClick(false, false)">Edit</button>
 
         </div>
 
@@ -133,7 +133,7 @@
             <label for="id_number">Insert ID Number:</label>
             <input type="text" class="form-control" id="id_number">
           </div>
-          <button type="button" class="btn btn-primary" ng-click="drop.csqClick(false)">Enter</button>
+          <button type="button" class="btn btn-primary" ng-click="drop.functionClick(false, false)">Enter</button>
         </div>
 
       </section>
