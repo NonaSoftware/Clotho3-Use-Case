@@ -48,7 +48,7 @@
         Clotho.query(obj).then(function(result){
           console.log(result);
           if (result != null){
-            var data = JSON.stringify(result);
+            var data = JSON.stringify(result, null, 3);
             $("#edit_json_object").val(data);
             $('#error_field').text('Objects found: ' + data);
           }
@@ -62,7 +62,7 @@
           Clotho.query(obj).then(function(result){
           console.log(result);
           if (result != null){
-            var data = JSON.stringify(result);
+            var data = JSON.stringify(result, null, 3);
             $("#edit_json_object").val(data);
             $('#error_field').text('Objects found: ' + data);
           }
@@ -84,7 +84,7 @@
         Clotho.queryOne(obj).then(function(result){
           console.log(result);
           if (result != null){
-            var data = JSON.stringify(result);
+            var data = JSON.stringify(result, null, 3);
             $('#error_field').text('Objects found: ' + data);
             $("#edit_json_object").val(data);
           }
@@ -98,7 +98,7 @@
           Clotho.queryOne(obj).then(function(result){
           console.log(result);
           if (result != null){
-            var data = JSON.stringify(result);
+            var data = JSON.stringify(result, null, 3);
             $('#error_field').text('Objects found: ' + data);
             $("#edit_json_object").val(data);
           }
@@ -150,21 +150,21 @@
         break;
 
         case 2:
-          if (document.getElementById("edit_json_object").value!=""){
-            var obj = JSON.parse(document.getElementById("edit_json_object").value);
-            Clotho.set(obj).then(function(result){
-            console.log(result);
-            if (result != null){
-              $('#error_field').text('Object with ID: ' + result + ' changed.');
+            try{
+              var obj = JSON.parse(document.getElementById("edit_json_object").value);
             }
-            else{
-              $('#error_field').text('Cannot change object; connection may be lost or object may not exist.');
+            catch (err){
+              $('#error_field').text(err.message);
             }
-          });
-        }
-        else{
-          $('#error_field').text('Please fill out the appropriate fields.');
-        }
+            try{
+              Clotho.set(obj).then(function(result){
+                console.log(result);
+                $('#error_field').text('Object(s) changed.');
+              });
+            }
+            catch (err){
+              $('#error_field').text(err.message);
+            }
          break;
 
          case 3:
