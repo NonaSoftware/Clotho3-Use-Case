@@ -44,7 +44,7 @@
         </div>
 
         <!--div for create, set query -->
-        <div ng-show="drop.isSelected(1)  || drop.isSelected(2) || drop.isSelected(3)">
+        <div ng-show="drop.isSelected(1) || drop.isSelected(2) || drop.isSelected(3)">
           <div class="form-group">
             <label for="json_obj">Insert JSON Object:</label>
             <textarea class="form-control" rows="5" id="json_obj"></textarea>
@@ -102,15 +102,11 @@
           </div>
 
           <div class = "row">
-            <div class = "col-md-6">
-              <button type="button" class="btn btn-primary" ng-click="drop.queryOneClick()">Query One</button>
-            </div>
-
-            <div class = "col-md-6">
+            <button type="button" class="btn btn-primary" ng-click="drop.queryOneClick()">Query One</button>
             <button type="button" class="btn btn-primary" ng-click="drop.queryAllClick()">Query All</button>
           </div>
 
-        </div>
+          </div>
 
           <div class="form-group" style="margin-top: 25px">
             <label for="edit_json_object">Edit Results Here:</label>
