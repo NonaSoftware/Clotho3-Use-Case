@@ -126,29 +126,36 @@
 
 
        case 4:
+        try{
           var id = document.getElementById("id_number").value;
      		  Clotho.destroy(id).then(function(result){
    			      console.log(result);
               $('#error_field').text('Destroyed object with ID: '+result);
-              else{
-                $('#error_field').text('Cannot destroy object; connection may be lost or object may not exist.');
-              }
-          });
+            });
+          }
+        catch(err){
+            $('#error_field').text(err.message);
+          }
           break;
 
        case 5:
-          var id = document.getElementById("id_number").value;
-          Clotho.get(id).then(function(result){
-            console.log(result);
-            if (result != null){
-              var data = JSON.stringify(result);
-              $('#error_field').text('Object details: '+data);
-            }
-            else{
-              $('#error_field').text('Cannot get object; connection may be lost or object may not exist.');
-            }
-          });
-       break;
+       try{
+         var id = document.getElementById("id_number").value;
+         Clotho.get(id).then(function(result){
+             console.log(result);
+             if (result === undefined){
+               $('#error_field').text('Object does not exist');
+             }
+             else{
+               var data = JSON.stringify(result, null, 3);
+               $('#error_field').text('Object details: '+ data);
+             }
+           });
+         }
+       catch(err){
+           $('#error_field').text(err.message);
+         }
+         break;
 
      };
     };
