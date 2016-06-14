@@ -59,9 +59,9 @@
           <!--buttons for insert JSON Object-->
             <div class = "row" style="margin-top: 25px">
               <div class = "col-md-6">
-                <button type="button" class="btn btn-primary" ng-show="drop.isSelected(3)||drop.isSelected(2)" ng-click="drop.functionClick(true, true)">Query One</button>
-                <button type="button" class="btn btn-primary" ng-show="drop.isSelected(3)||drop.isSelected(2)" ng-click="drop.functionClick(false, true)">Query All</button>
-                <button type="button" class="btn btn-primary" ng-show="drop.isSelected(1)" ng-click="drop.functionClick(false, true)">Create</button>
+                <button type="button" class="btn btn-primary" ng-show="drop.isSelected(3)||drop.isSelected(2)" ng-click="drop.functionClick(true, false, 3)">Query One</button>
+                <button type="button" class="btn btn-primary" ng-show="drop.isSelected(3)||drop.isSelected(2)" ng-click="drop.functionClick(false, false, 3)">Query All</button>
+                <button type="button" class="btn btn-primary" ng-show="drop.isSelected(1)" ng-click="drop.functionClick(false, false, 1)">Create</button>
               </div>
             </div>
 
@@ -87,7 +87,7 @@
             <div class="row">
               <div class = "col-md-6">
                 <button type="button" class="btn btn-primary" ng-click="keyValCtrl.addRow()">+</button>
-                <button type="button" class="btn btn-primary" ng-show="drop.isSelected(1)" ng-click="drop.functionClick(false, true)">Create</button>
+                <button type="button" class="btn btn-primary" ng-show="drop.isSelected(1)" ng-click="drop.functionClick(false, true, 1)">Create</button>
               </div>
             </div>
           </section>
@@ -98,32 +98,24 @@
 
 
         <!--buttons for query-->
-        <div ng-show = "drop.isSelected(3)">
+        <div ng-show = "drop.isSelected(3)||drop.isSelected(2)">
           <div class = "row" style="margin-top: 25px">
             <div class = "col-md-6">
-              <button type="button" class="btn btn-primary" ng-click="drop.functionClick(true, false)">Query One</button>
-              <button type="button" class="btn btn-primary" ng-click="drop.functionClick(false, false)">Query All</button>
+              <button type="button" class="btn btn-primary" ng-click="drop.functionClick(true, true, 3)">Query One</button>
+              <button type="button" class="btn btn-primary" ng-click="drop.functionClick(false, true, 3)">Query All</button>
             </div>
           </div>
         </div>
 
-        <!--section for set-->
+        <!--section for editting in set-->
         <div ng-show = "drop.isSelected(2)">
-
-          <div class = "row" style = "margin-top: 25px">
-            <div class = "col-md-6">
-              <button type="button" class="btn btn-primary" ng-click="drop.queryOneClick()">Query One</button>
-              <button type="button" class="btn btn-primary" ng-click="drop.queryAllClick()">Query All</button>
-            </div>
-          </div>
-
           <div class="form-group" style="margin-top: 25px">
             <label for="edit_json_object">Edit Results Here:</label>
             <textarea class="form-control" rows="5" id="edit_json_object"></textarea>
           </div>
 
 
-          <button type="button" class="btn btn-primary" ng-click="drop.functionClick(false, false)">Edit</button>
+          <button type="button" class="btn btn-primary" ng-click="drop.functionClick(false, false, 2)">Edit</button>
 
         </div>
 
@@ -133,7 +125,8 @@
             <label for="id_number">Insert ID Number:</label>
             <input type="text" class="form-control" id="id_number">
           </div>
-          <button type="button" class="btn btn-primary" ng-click="drop.functionClick(false, false)">Enter</button>
+          <button type="button" class="btn btn-primary" ng-show = "drop.isSelected(4)" ng-click="drop.functionClick(false, false, 4)">Enter</button>
+          <button type="button" class="btn btn-primary" ng-show = "drop.isSelected(5)" ng-click="drop.functionClick(false, false, 5)">Enter</button>
         </div>
 
       </section>
