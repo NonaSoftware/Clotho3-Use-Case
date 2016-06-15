@@ -81,12 +81,12 @@
           </div>
 
           <section ng-controller="keyValController as keyValCtrl">
-            <div class="key-value-pairs" ng-repeat="kvPair in keyValCtrl.kvlist track by $index">
+            <div class="key-value-pairs" ng-repeat="kvPair in drop.kvlist track by $index">
               <key-value></key-value>
             </div>
             <div class="row">
               <div class = "col-md-6">
-                <button type="button" class="btn btn-primary" ng-click="keyValCtrl.addRow()">+</button>
+                <button type="button" class="btn btn-primary" ng-click="drop.addRow()">+</button>
                 <button type="button" class="btn btn-primary" ng-show="drop.isSelected(1)" ng-click="drop.functionClick(false, true)">Create</button>
               </div>
             </div>

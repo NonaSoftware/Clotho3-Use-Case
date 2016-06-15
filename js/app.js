@@ -23,24 +23,22 @@
   });
 
   app.controller("keyValController", function() {
-    this.kvlist = [];  //array of key-value objects [{key:'asdf', value:'1234'},{...},{...}]
 
-    this.submitPairs = function() {
-      console.log(kvObj);
-    };
+  });
+
+  app.controller("DropdownController", function() {
+    this.tab = 0;
+    this.val = 0;
+    this.map = [];
+    this.buttonText = functionText[this.tab];
+    this.tempObj = {};
+
+    this.kvlist = [{}];  //array of key-value objects [{key:'asdf', value:'1234'},{...},{...}]
 
     this.addRow = function() {
       var emptyObj= {};
       this.kvlist.push(emptyObj);
     };
-  });
-
-  app.controller("DropdownController", function() {
-    this.tab = 0;
-    this.dummyArray = [0];
-    this.val = 0;
-    this.map = [];
-    this.buttonText = functionText[this.tab];
 
     this.selectTab = function(setTab) {
       $('#error_field').text(" ");
@@ -99,6 +97,12 @@
 
        case 1:
        //insert getting the key-value pairs here
+       kvObj = this.tempObj;
+       console.log(kvObj);
+       this.tempObj = {};
+       this.kvlist = [{}];
+
+
        if(map){
         try{
           Clotho.create(kvObj).then(function(result){
