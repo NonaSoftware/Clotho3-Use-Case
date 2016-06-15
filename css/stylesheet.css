@@ -3,6 +3,14 @@ body {
   margin-top: 25px;
 }
 
+.ng-invalid {
+  border-color: #FA787E;
+}
+
+.ng-valid {
+  border-color: #78FA89;
+}
+
 #navigation {
   padding-top: 10px;
   padding-bottom: 10px;

@@ -1,13 +1,13 @@
 <div class = "row">
   <div class = "col-md-6 col-sm-6">
     <div class="form-group">
-      <input type="text" class="form-control" ng-model="keyValCtrl.kvlist[$index].key"></input>
+      <input type="text" class="form-control" ng-model="functionCtrl.kvlist[$index].key" required />
     </div>
   </div>
 
   <div class = "col-md-6 col-sm-6">
     <div class="form-group">
-      <input type="text" class="form-control" ng-model="functionCtrl.kvObj[keyValCtrl.kvlist[$index].key]"></input>
+      <input type="text" class="form-control" ng-model="functionCtrl.kvObj[functionCtrl.kvlist[$index].key]" required />
     </div>
   </div>
 </div>
