@@ -22,10 +22,6 @@
     this.kvObj = kvObj;
   });
 
-  app.controller("keyValController", function() {
-
-  });
-
   app.controller("DropdownController", function() {
     this.tab = 0;
     this.val = 0;
