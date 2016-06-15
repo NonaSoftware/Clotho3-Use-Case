@@ -22,25 +22,19 @@
     this.kvObj = kvObj;
   });
 
-  app.controller("keyValController", function() {
-    this.kvlist = [];  //array of key-value objects [{key:'asdf', value:'1234'},{...},{...}]
+  app.controller("DropdownController", function() {
+    this.tab = 0;
+    this.val = 0;
+    this.map = [];
+    this.buttonText = functionText[this.tab];
+    this.tempObj = {};
 
-    this.submitPairs = function() {
-      console.log(kvObj);
-    };
+    this.kvlist = [{}];  //array of key-value objects [{key:'asdf', value:'1234'},{...},{...}]
 
     this.addRow = function() {
       var emptyObj= {};
       this.kvlist.push(emptyObj);
     };
-  });
-
-  app.controller("DropdownController", function() {
-    this.tab = 0;
-    this.dummyArray = [0];
-    this.val = 0;
-    this.map = [];
-    this.buttonText = functionText[this.tab];
 
     this.selectTab = function(setTab) {
       $('#error_field').text(" ");
