@@ -48,7 +48,7 @@
         </div>
 
         <!--PILLS-->
-        <ul class="nav nav-pills" ng-show="(drop.isSelected(1) || drop.isSelected(2) || drop.isSelected(3))">
+        <ul class="nav nav-tabs" style="margin-bottom: 10px;" ng-show="(drop.isSelected(1) || drop.isSelected(2) || drop.isSelected(3))">
           <li ng-class="{active: drop.isSelectedPill(1)}"><a href ng-click="drop.selectPill(1)">JSON Object</a></li>
           <li ng-class="{active: drop.isSelectedPill(2)}"><a href ng-click="drop.selectPill(2)">Map</a></li>
         </ul>
