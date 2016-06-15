@@ -18,6 +18,13 @@
     };
   });
 
+  app.directive("createPage", function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'functions-create.html'
+    };
+  });
+
   app.controller("functionController", function () {
     this.kvObj = kvObj;
   });

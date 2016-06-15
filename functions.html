@@ -62,49 +62,7 @@
         <!--div for create, set query -->
         <div ng-show="(drop.isSelected(1) || drop.isSelected(2) || drop.isSelected(3))">
           <!--"INSERT JSON OBJECT:"-->
-          <div class="form-group">
-            <label for="json_obj">Insert JSON Object:</label>
-            <textarea class="form-control" rows="5" id="json_obj"></textarea>
-          </div>
-
-          <!--buttons for insert JSON Object-->
-          <div class = "row" style="margin-top: 25px">
-            <div class = "col-md-6">
-              <button type="button" class="btn btn-primary" ng-show="drop.isSelected(3)||drop.isSelected(2)" ng-click="drop.functionClick(true, true)">Query One</button>
-              <button type="button" class="btn btn-primary" ng-show="drop.isSelected(3)||drop.isSelected(2)" ng-click="drop.functionClick(false, true)">Query All</button>
-              <button type="button" class="btn btn-primary" ng-show="drop.isSelected(1)" ng-click="drop.functionClick(false, false, 1)">Create</button>
-            </div>
-          </div>
-
-          <!--"OR INSERT MAP:"-->
-          <div class = "row" style="margin-top: 25px">
-            <div class = "col-md-6">
-              <p><b>Or Insert Map</b></p>
-            </div>
-          </div>
-
-          <!--"KEY: VALUE:"-->
-          <div class = "row">
-            <div class = "col-lg-4 col-md-6 col-sm-6 col-xs-6">
-              <p><b>Key:</b></p>
-            </div>
-            <div class = "col-lg-4 col-md-6 col-sm-6 col-xs-6">
-              <p><b>Value:</b></p>
-            </div>
-          </div>
-
-          <!--repeating forms-->
-          <div class="key-value-pairs" ng-repeat="kvPair in drop.kvlist track by $index">
-            <key-value></key-value>
-          </div>
-
-          <!--buttons for + and Create-->
-          <div class="row">
-            <div class = "col-md-6">
-              <button type="button" class="btn btn-primary" ng-click="drop.addRow()">+</button>
-              <button type="button" class="btn btn-primary" ng-show="drop.isSelected(1)" ng-click="drop.functionClick(false, true, 1)">Create</button>
-            </div>
-          </div>
+          <create-page></create-page>
         </div>
 
 
