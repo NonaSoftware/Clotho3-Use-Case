@@ -14,13 +14,15 @@
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
   </head>
   <body style="margin-top: 25px; margin-bottom: 25px" ng-controller="functionController as functionCtrl">
+
+    <!-- menu bar -->
     <menu-bar></menu-bar>
+
     <div class="container">
       <!-- jumbotron -->
-      <div class ="jumbotron" ng-hide="true" style="margin-top: 10px">
-        <h1>Necessitas:</h1> <h2>Clotho Test Case </h2>
+      <div style="margin-top: 10px; text-align: center;">
+        <h1>Clotho3.0 Test Case</h1> <h3>Select a function below</h3>
       </div>
-
       <!--where any error message will go-->
       <div class="row">
         <div class="col-md-12">
@@ -31,6 +33,7 @@
       </div>
       <!-- selection -->
       <section ng-controller="DropdownController as drop">
+
         <div class="dropdown" style="margin-bottom: 25px">
           <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">{{drop.buttonText}}
           <span class="caret"></span></button>
@@ -43,6 +46,14 @@
           </ul>
         </div>
 
+        <!--CREATE()-->
+        <ul class="nav nav-pills">
+          <li ng-class="{active: drop.isSelectedPill(1)}"><a href ng-click="drop.selectPill(1)">JSON Object</a></li>
+          <li ng-class="{active: drop.isSelectedPill(2)}"><a href ng-click="drop.selectPill(2)">Map</a></li>
+        </ul>
+
+
+
         <div class = "row" ng-show="drop.isSelected(2)" style="margin-top: 25px">
           <div class = "col-md-6">
             <p><b>First Query an Object</b></p>
@@ -50,13 +61,14 @@
         </div>
 
         <!--div for create, set query -->
-        <div ng-show="drop.isSelected(1) || drop.isSelected(2) || drop.isSelected(3)">
+        <div ng-show="(drop.isSelected(1) || drop.isSelected(2) || drop.isSelected(3))">
           <div class="form-group">
             <label for="json_obj">Insert JSON Object:</label>
             <textarea class="form-control" rows="5" id="json_obj"></textarea>
           </div>
 
           <!--buttons for insert JSON Object-->
+<<<<<<< Updated upstream
             <div class = "row" style="margin-top: 25px">
               <div class = "col-md-6">
                 <button type="button" class="btn btn-primary" ng-show="drop.isSelected(3)||drop.isSelected(2)" ng-click="drop.functionClick(true, false, 3)">Query One</button>
@@ -65,21 +77,33 @@
               </div>
             </div>
 
+=======
+>>>>>>> Stashed changes
           <div class = "row" style="margin-top: 25px">
             <div class = "col-md-6">
-              <p><b>Or Insert Map</b></p>
+              <button type="button" class="btn btn-primary" ng-show="drop.isSelected(3)||drop.isSelected(2)" ng-click="drop.functionClick(true, true)">Query One</button>
+              <button type="button" class="btn btn-primary" ng-show="drop.isSelected(3)||drop.isSelected(2)" ng-click="drop.functionClick(false, true)">Query All</button>
+              <button type="button" class="btn btn-primary" ng-click="drop.functionClick(false, true)">Create</button>
             </div>
           </div>
 
+<<<<<<< Updated upstream
           <div class = "row">
             <div class = "col-md-6 col-sm-6">
               <p><b>Key:</b></p>
             </div>
             <div class = "col-md-6 col-sm-6">
               <p><b>Value:</b></p>
+=======
+          <div>
+            <div class = "row" style="margin-top: 25px">
+              <div class = "col-md-6">
+                <p><b>Or Insert Map</b></p>
+              </div>
+>>>>>>> Stashed changes
             </div>
-          </div>
 
+<<<<<<< Updated upstream
           <section ng-controller="keyValController as keyValCtrl">
             <div class="key-value-pairs" ng-repeat="kvPair in keyValCtrl.kvlist track by $index">
               <key-value></key-value>
@@ -88,9 +112,29 @@
               <div class = "col-md-6">
                 <button type="button" class="btn btn-primary" ng-click="keyValCtrl.addRow()">+</button>
                 <button type="button" class="btn btn-primary" ng-show="drop.isSelected(1)" ng-click="drop.functionClick(false, true, 1)">Create</button>
+=======
+            <div class = "row">
+              <div class = "col-lg-4 col-md-6 col-sm-6 col-xs-6">
+                <p><b>Key:</b></p>
+              </div>
+              <div class = "col-lg-4 col-md-6 col-sm-6 col-xs-6">
+                <p><b>Value:</b></p>
+>>>>>>> Stashed changes
               </div>
             </div>
-          </section>
+
+            <section>
+              <div class="key-value-pairs" ng-repeat="kvPair in drop.kvlist track by $index">
+                <key-value></key-value>
+              </div>
+              <div class="row">
+                <div class = "col-md-6">
+                  <button type="button" class="btn btn-primary" ng-click="drop.addRow()">+</button>
+                  <button type="button" class="btn btn-primary" ng-show="drop.isSelected(1)" ng-click="drop.functionClick(false, true)">Create</button>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
 
         <!--button for create-->

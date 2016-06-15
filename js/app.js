@@ -24,6 +24,7 @@
 
   app.controller("DropdownController", function() {
     this.tab = 0;
+    this.pill = 1;
     this.val = 0;
     this.map = [];
     this.buttonText = functionText[this.tab];
@@ -36,11 +37,21 @@
       this.kvlist.push(emptyObj);
     };
 
+    this.selectPill = function(setPill) {
+      $('#error_field').text(" ");
+      this.pill = setPill;
+    };
+
+    this.isSelectedPill = function(checkPill) {
+      return this.pill === checkPill;
+    };
+
     this.selectTab = function(setTab) {
       $('#error_field').text(" ");
       this.tab = setTab;
       this.buttonText = functionText[this.tab];
     };
+
     this.isSelected = function(checkTab) {
       return this.tab === checkTab;
     };
