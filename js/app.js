@@ -44,6 +44,10 @@
       this.kvlist.push(emptyObj);
     };
 
+    this.deleteRow = function() {
+      this.kvlist.pop();
+    };
+
     this.selectPill = function(setPill) {
       $('#error_field').text(" ");
       this.pill = setPill;
