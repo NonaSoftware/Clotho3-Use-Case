@@ -4,6 +4,18 @@
   var app = angular.module('appPage', []);
   var kvObj = {};
 
+  $("#panel").slideUp();
+  $("#flip").click(function(){
+      $("#panel").slideToggle("fast");
+  });
+
+  app.directive("functionsHelp", function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'functions-help.html'
+    };
+  });
+
   app.directive("menuBar", function() {
     return {
       restrict: 'E',
