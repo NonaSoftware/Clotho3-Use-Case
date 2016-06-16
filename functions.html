@@ -71,12 +71,12 @@
         <div ng-show = "drop.isSelected(3)||drop.isSelected(2)">
           <div class = "row" style="margin-top: 25px">
             <div ng-show = "drop.isSelectedPill(1)" class = "col-md-6">
-              <button type="button" class="btn btn-primary" ng-click="drop.functionClick(true, true, 3)">Query One</button>
-              <button type="button" class="btn btn-primary" ng-click="drop.functionClick(false, true, 3)">Query All</button>
+              <button type="button" class="btn btn-primary" ng-click="drop.functionClick(true, false, 3)">Query One</button>
+              <button type="button" class="btn btn-primary" ng-click="drop.functionClick(false, false, 3)">Query All</button>
             </div>
             <div ng-show = "drop.isSelectedPill(2)" class = "col-md-6">
-              <button type="button" class="btn btn-primary" ng-click="drop.functionClick(true, true)">Query One</button>
-              <button type="button" class="btn btn-primary" ng-click="drop.functionClick(false, true)">Query All</button>
+              <button type="button" class="btn btn-primary" ng-click="drop.functionClick(true, true, 3)">Query One</button>
+              <button type="button" class="btn btn-primary" ng-click="drop.functionClick(false, true, 3)">Query All</button>
             </div>
           </div>
         </div>
