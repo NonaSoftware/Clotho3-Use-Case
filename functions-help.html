@@ -9,9 +9,8 @@
   <p><strong>Returns:</strong> The ID (or sequential list of IDs if more than one object was specified) of the successfully created object.</p>
   <strong>Notes:</strong>
   <ul>
-    <li>The object spec must include the object ID.</li>
-    <li>Fields present in the original object but not in the input object are unchanged.</li>
-    <li>If a new field is encoded in the object spec, it will be added to the existing object.</li>
+    <li>If an existing object ID is used, fields present in the original object but not in the input object are unchanged.
+      If a new field is encoded in the object spec, it will be added to the existing object.</li>
     <li>If the object does not exist or if an object ID is not provided, the object is then constructed by way of Clotho.create()</li>
   </ul>
 </div>
@@ -23,9 +22,8 @@
   <p><strong>Returns:</strong> The ID of the modified/created object.</p>
   <strong>Notes:</strong>
   <ul>
-    <li>The object spec must include the object ID.</li>
-    <li>Fields present in the original object but not in the input object spec are unchanged.</li>
-    <li>If a new field is encoded in the object spec, it will be added to the existing object.</li>
+    <li>If the object spec includes an existing ID, fields present in the original object but not in the input object spec are unchanged.
+      If a new field is encoded in the object spec, it will be added to the existing object.</li>
     <li>If the object does not exist or if an object ID is not provided, the object is then constructed by way of Clotho.create()</li>
   </ul>
 </div>
@@ -41,8 +39,8 @@
 <div class="container" ng-show="drop.isSelected(4)">
   <h3><strong>.destroy()</strong></h3>
   <p>Destroys the specified Clotho object</p>
-  <p><strong>Input:</strong> (Object selector) A String representing the desired Clotho object's <em>name</em> or <em>unique ID</em> targeted for deletion.</p>
-  <p><strong>Returns:</strong> N/A</p>
+  <p><strong>Input:</strong> (Object selector) A String representing the desired Clotho object's <em>unique ID</em> targeted for deletion.</p>
+  <p><strong>Returns:</strong> The ID of the destroyed object</p>
   <strong>Notes:</strong>
   <ul>
     <li>Clotho will fail to destory an object if given an ambiguous object selector.</li>
@@ -53,7 +51,7 @@
 <div class="container" ng-show="drop.isSelected(5)">
   <h3><strong>.get()</strong></h3>
   <p>Gets a specified Clotho object</p>
-  <p><strong>Input:</strong> (Object selector) A String representing the desired Clotho object's <em>name</em> or <em>unique ID</em>.</p>
+  <p><strong>Input:</strong> (Object selector) A String representing the desired Clotho object's <em>unique ID</em>.</p>
   <p><strong>Returns:</strong> The object(s) specified by the input object selector(s)</p>
   <strong>Notes:</strong>
   <ul>
