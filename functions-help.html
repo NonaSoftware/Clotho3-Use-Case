@@ -1,23 +1,63 @@
-<div ng-show="drop.isSelected(0)">
+<div class="container" ng-show="drop.isSelected(0)">
   <p>Select a function above</p>
 </div>
 
-<div ng-show="drop.isSelected(1)">
-  <p>Create Help</p>
+<div class="container" ng-show="drop.isSelected(1)">
+  <h3><strong>.create()</strong></h3>
+  <p>Creates the specified Clotho object(s)</p>
+  <p><strong>Input:</strong> (JSON object) An object describing an instance(s) of a Clotho Schema</p>
+  <p><strong>Returns:</strong> The ID (or sequential list of IDs if more than one object was specified) of the successfully created object.</p>
+  <strong>Notes:</strong>
+  <ul>
+    <li>The object spec must include the object ID.</li>
+    <li>Fields present in the original object but not in the input object are unchanged.</li>
+    <li>If a new field is encoded in the object spec, it will be added to the existing object.</li>
+    <li>If the object does not exist or if an object ID is not provided, the object is then constructed by way of Clotho.create()</li>
+  </ul>
 </div>
 
-<div ng-show="drop.isSelected(2)">
-  <p>Set Help</p>
+<div class="container" ng-show="drop.isSelected(2)">
+  <h3><strong>.set()</strong></h3>
+  <p>Sets all fields present in the object spec to their associated values for the Clotho object represented by the object ID.</p>
+  <p><strong>Input:</strong> (JSON object) An object spec or list of multiple specs containing field-value pairs to be set. Each object spec must contain the object ID to be modified.</p>
+  <p><strong>Returns:</strong> The ID of the modified/created object.</p>
+  <strong>Notes:</strong>
+  <ul>
+    <li>The object spec must include the object ID.</li>
+    <li>Fields present in the original object but not in the input object spec are unchanged.</li>
+    <li>If a new field is encoded in the object spec, it will be added to the existing object.</li>
+    <li>If the object does not exist or if an object ID is not provided, the object is then constructed by way of Clotho.create()</li>
+  </ul>
 </div>
 
-<div ng-show="drop.isSelected(3)">
-  <p>Query Help</p>
+<div class="container" ng-show="drop.isSelected(3)">
+  <h3><strong>.query()</strong></h3>
+  <p>.query() will query for all Clotho objects matching the specified criteria.</p>
+  <p>.queryOne() will query for any single Clotho object matching the specified criteria.</p>
+  <p><strong>Input:</strong> (JSON object) An object spec.</p>
+  <p><strong>Returns:</strong> The <em>first</em> object matching the fields provided in the spec.</p>
 </div>
 
-<div ng-show="drop.isSelected(4)">
-  <p>Destroy Help</p>
+<div class="container" ng-show="drop.isSelected(4)">
+  <h3><strong>.destroy()</strong></h3>
+  <p>Destroys the specified Clotho object</p>
+  <p><strong>Input:</strong> (Object selector) A String representing the desired Clotho object's <em>name</em> or <em>unique ID</em> targeted for deletion.</p>
+  <p><strong>Returns:</strong> N/A</p>
+  <strong>Notes:</strong>
+  <ul>
+    <li>Clotho will fail to destory an object if given an ambiguous object selector.</li>
+    <li>An error message is reported on the 'say' channel if Clotho.destroy() fails.</li>
+  </ul>
 </div>
 
-<div ng-show="drop.isSelected(5)">
-  <p>Get Help</p>
+<div class="container" ng-show="drop.isSelected(5)">
+  <h3><strong>.get()</strong></h3>
+  <p>Gets a specified Clotho object</p>
+  <p><strong>Input:</strong> (Object selector) A String representing the desired Clotho object's <em>name</em> or <em>unique ID</em>.</p>
+  <p><strong>Returns:</strong> The object(s) specified by the input object selector(s)</p>
+  <strong>Notes:</strong>
+  <ul>
+    <li>If the input object selector is ambiguous, Clotho will return the first object posted by MongoDB (essentially arbitrarily)</li>
+    <li>Clotho will report an error message on the 'say' channel if an object could not be retrieved.</li>
+  </ul>
 </div>
