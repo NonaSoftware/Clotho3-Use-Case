@@ -128,7 +128,7 @@
               var obj = JSON.parse(document.getElementById("edit_json_object").value);
               Clotho.set(obj).then(function(result){
                 console.log(result);
-                $('#error_field').text('Object(s) with ID: ' + results + ' changed.');
+                $('#error_field').text('Object(s) with ID: ' + result + ' changed.');
               });
             }
             catch (err){
