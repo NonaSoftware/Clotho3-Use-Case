@@ -16,7 +16,7 @@ Steps to run Clotho EVERY time:
 stay on this page!
 
 Running Necessitas:
-1. Just click on home.html!
+1. Just click on home.html! (in firefox or safari)
 
 
 MAC:
@@ -35,6 +35,6 @@ Steps to run Clotho EVERY time:
 stay on this page!
 
 Running Necessitas:
-1. Just click on home.html!
+1. Just click on home.html! (in firefox or safari)
 
 To terminate, stop running the project in Netbeans, exit out of localhost:8443, and ctrl+C in the terminal to terminate mongodb		

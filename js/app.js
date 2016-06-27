@@ -8,7 +8,7 @@
   $("#flip").click(function(){
       $("#panel").slideToggle("fast");
   });
-
+//toggles help on the function page
   app.directive("functionsHelp", function() {
     return {
       restrict: 'E',
@@ -41,6 +41,7 @@
     this.kvObj = kvObj;
   });
 
+//dropdown controller for functions 
   app.controller("DropdownController", function() {
     this.tab = 0;
     this.pill = 1;
@@ -51,6 +52,7 @@
 
     this.kvlist = [{}];  //array of key-value objects [{key:'asdf', value:'1234'},{...},{...}]
 
+//expanding or deleting elements in a map
     this.addRow = function() {
       var emptyObj= {};
       this.kvlist.push(emptyObj);
@@ -79,9 +81,12 @@
       return this.tab === checkTab;
     };
 
-
+//communicating with clotho based on the function and input method
+//includes some basic error checking
     this.functionClick = function(qOne, map, funcNum){
       switch(funcNum){
+
+        //create function
         case 1:
           if(map){
             try{
@@ -123,6 +128,7 @@
         }
       break;
 
+      //set function
         case 2:
             try{
               var obj = JSON.parse(document.getElementById("edit_json_object").value);
@@ -136,6 +142,7 @@
             }
          break;
 
+         //query function
          case 3:
          if (map){
            if(qOne){
@@ -200,7 +207,7 @@
          }
          break;
 
-
+         //destroy function
        case 4:
         try{
           var id = document.getElementById("id_number").value;
@@ -214,6 +221,7 @@
           }
           break;
 
+      //get function  
        case 5:
        try{
          var id = document.getElementById("id_number").value;
@@ -238,6 +246,7 @@
   });
 
 
+//text for the dropdown controller
    var functionText = ["Choose a function",
                 "create()",
                 "set()",
@@ -248,7 +257,8 @@
 })();
 
 
-
+//login function
+//contains some error checking
 function loginClick() {
   try{
     var username = document.getElementById("username_input").value;
@@ -268,6 +278,8 @@ function loginClick() {
   }
 }
 
+//create user function
+//contains some error checking
 function createUserClick(){
     var username = document.getElementById("new_username_input").value;
      var password = document.getElementById("new_password_input").value;
@@ -282,6 +294,8 @@ function createUserClick(){
   });
 }
 
+//logout function
+//contains some error checking
 function logoutClick(){
   try{
     Clotho.logout().then(function(result){
