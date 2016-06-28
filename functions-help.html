@@ -14,6 +14,7 @@
       If a new field is encoded in the object spec, it will be added to the existing object.</li>
     <li>If the object does not exist or if an object ID is not provided, the object is then constructed by way of Clotho.create()</li>
   </ul>
+  <strong>Example:</strong> Try creating an object with name = example and id = 1, or in a JSON object: {"name":"example", "id":"1"}
 </div>
 
 <div class="container" ng-show="drop.isSelected(2)">
@@ -27,6 +28,7 @@
       If a new field is encoded in the object spec, it will be added to the existing object.</li>
     <li>If the object does not exist or if an object ID is not provided, the object is then constructed by way of Clotho.create()</li>
   </ul>
+  <strong>Example:</strong> Try querying your object by enter its id = 1 or in a JSON object: {"id":"1"}. Then try to change its name to "ex" in the edit box. After changing, if you query the object's id again, note the change.
 </div>
 
 <div class="container" ng-show="drop.isSelected(3)">
@@ -35,6 +37,7 @@
   <p>.queryOne() will query for any single Clotho object matching the specified criteria.</p>
   <p><strong>Input:</strong> (JSON object) An object spec.</p>
   <p><strong>Returns:</strong> The <em>first</em> object matching the fields provided in the spec.</p>
+  <strong>Example:</strong> Try querying your object by entering its id = 1 or in a JSON object: {"id":"1"}.
 </div>
 
 <div class="container" ng-show="drop.isSelected(4)">
@@ -47,6 +50,7 @@
     <li>Clotho will fail to destory an object if given an ambiguous object selector.</li>
     <li>An error message is reported on the 'say' channel if Clotho.destroy() fails.</li>
   </ul>
+  <strong>Example:</strong> Try destroying your object by entering its id = 1.
 </div>
 
 <div class="container" ng-show="drop.isSelected(5)">
@@ -59,4 +63,5 @@
     <li>If the input object selector is ambiguous, Clotho will return the first object posted by MongoDB (essentially arbitrarily)</li>
     <li>Clotho will report an error message on the 'say' channel if an object could not be retrieved.</li>
   </ul>
+  <strong>Example:</strong> Try getting your object's details by entering its id = 1.
 </div>
