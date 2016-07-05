@@ -46,8 +46,8 @@
   </div>
 </div>
 
-<div ng-show="drop.isSelectedPill(3)">
-  <div class="row">
+<div ng-show="drop.isSelectedPill(3) && drop.isSelected(1)">
+  <div class="container">
     <h3>Example Code for Creating an Object</h3>
     <pre>
 function createObject(){
@@ -61,6 +61,22 @@ function createObject(){
       $('#response_field').text("Created Object with id: "+result);
     }
   });
+}
+    </pre>
+  </div>
+</div>
+
+<div ng-show="drop.isSelectedPill(3) && drop.isSelected(2)">
+  <div class="container">
+    <h3>Example Code for Creating an Object</h3>
+    <pre>
+function setObject(){
+  var obj = {"name":"example_1", "id":"1","sequence":"cat"};
+  $('#description_field').text("Changing Object's sequence to: "+JSON.stringify(obj));
+  Clotho.set(obj).then(function(result){
+			console.log(result);
+      $('#response_field').text("Object changed");
+    });
 }
     </pre>
   </div>
