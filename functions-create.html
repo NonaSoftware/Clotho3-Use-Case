@@ -45,3 +45,23 @@
     </div>
   </div>
 </div>
+
+<div ng-show="drop.isSelectedPill(3)">
+  <div class="row">
+    <h3>Example Code for Creating an Object</h3>
+    <pre>
+function createObject(){
+  var obj = {"name":"example_1", "id":"1", "sequence":"cacagatgacgt"};
+  $('#description_field').text("Creating Object: "+JSON.stringify(obj));
+  Clotho.create(obj).then(function(result){
+    console.log(result);
+    if(result===undefined){
+      $('#response_field').text("Object with that id already exists");
+    } else {
+      $('#response_field').text("Created Object with id: "+result);
+    }
+  });
+}
+    </pre>
+  </div>
+</div>
