@@ -68,7 +68,7 @@ function createObject(){
 
 <div ng-show="drop.isSelectedPill(3) && drop.isSelected(2)">
   <div class="container">
-    <h3>Example Code for Creating an Object</h3>
+    <h3>Example Code for Setting an Object</h3>
     <pre>
 function setObject(){
   var obj = {"name":"example_1", "id":"1","sequence":"cat"};
@@ -76,6 +76,59 @@ function setObject(){
   Clotho.set(obj).then(function(result){
 			console.log(result);
       $('#response_field').text("Object changed");
+    });
+}
+    </pre>
+  </div>
+</div>
+
+<div ng-show="drop.isSelectedPill(3) && drop.isSelected(3)">
+  <div class="container">
+    <h3>Example Code for Querying an Object</h3>
+    <pre>
+function queryObject(){
+  var obj = {"name":"example_1"};
+  $('#description_field').text("Querying Object with details: "+JSON.stringify(obj));
+  Clotho.query(obj).then(function(result){
+			console.log(result);
+      $('#response_field').text("Found Object: " + JSON.stringify(result));
+    });
+}
+    </pre>
+  </div>
+</div>
+
+<div ng-show="drop.isSelectedPill(3) && drop.isSelected(4)">
+  <div class="container">
+    <h3>Example Code for Destroying an Object</h3>
+    <pre>
+function destroyObject(){
+  var id = "1";
+  $('#description_field').text("Destroying Object with id: "+id);
+  Clotho.destroy(id).then(function(result){
+		console.log(result);
+    $('#response_field').text("Destroyed Object with id: "+result);
+  });
+}
+    </pre>
+  </div>
+</div>
+
+<div ng-show="drop.isSelectedPill(3) && drop.isSelected(5)">
+  <div class="container">
+    <h3>Example Code for Getting an Object</h3>
+    <pre>
+function getObject(){
+  var id = "1";
+  $('#description_field').text("Getting Object with id: "+id);
+  Clotho.get(id).then(function(result){
+			console.log(result);
+      if(result===undefined){
+        $('#response_field').text("Object doesn't exist");
+      }
+      else{
+        $('#response_field').text("Found Object: "+JSON.stringify(result));
+      }
     });
 }
     </pre>
