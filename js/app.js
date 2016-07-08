@@ -92,19 +92,22 @@
           if(map){
             try{
               Clotho.create(kvObj).then(function(result){
+                //ADD FUNCTION THAT SETS drop.kvlist.length = 0 (kvlist might be encapsulated in Drop)
+                this.kvlist.length = 0;
+                console.log(this.kvlist.length);
                 console.log(result);
                 if (result === undefined){
                   $('#error_field').text('Object(s) already exist');
-              }
-              else{
-                var data = JSON.stringify(result, null, 3);
-                $('#error_field').text('Object(s) created with ID: ' + data);
-              }
-            });
-          }
-          catch(err){
-            $('#error_field').text(err.message);
-          }
+                }
+                else{
+                  var data = JSON.stringify(result, null, 3);
+                  $('#error_field').text('Object(s) created with ID: ' + data);
+                }
+              });
+            }
+            catch(err){
+              $('#error_field').text(err.message);
+            }
         }
         else if (document.getElementById("json_obj").value!=""){
             try{
