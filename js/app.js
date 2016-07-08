@@ -41,7 +41,7 @@
     this.kvObj = kvObj;
   });
 
-//dropdown controller for functions 
+//dropdown controller for functions
   app.controller("DropdownController", function() {
     this.tab = 0;
     this.pill = 1;
@@ -59,6 +59,7 @@
     };
 
     this.deleteRow = function() {
+      this.kvlist[kvlist.length - 1] = {};
       this.kvlist.pop();
     };
 
@@ -221,7 +222,7 @@
           }
           break;
 
-      //get function  
+      //get function
        case 5:
        try{
          var id = document.getElementById("id_number").value;
